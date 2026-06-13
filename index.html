@@ -3,27 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marani Restaurant - Bakı</title>
+    <title>Marani Restaurant | Bakı</title>
+    <meta name="description" content="Marani Restaurant - Bakının mərkəzində dadın və zərifliyin məkanı.">
     <meta name="robots" content="noindex, nofollow">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary-brown: #5C4033;
-            --accent-gold: #DAA520;
-            --light-cream: #FDF5E6;
-            --dark-grey: #333;
-            --medium-grey: #666;
-            --white: #fff;
-            --black: #000;
-            --transition-speed: 0.3s ease;
+            --bg-color: #faf9f7;
+            --text-color: #1a1a1a;
+            --surface-color: #ffffff;
+            --primary-accent: #b08d57;
+            --secondary-accent: #9a9a90;
+            --hairline-color: rgba(26, 26, 26, 0.15);
+
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+
+            --spacing-xs: 0.5rem;   /* 8px */
+            --spacing-s: 1rem;      /* 16px */
+            --spacing-m: 2rem;      /* 32px */
+            --spacing-l: 4rem;      /* 64px */
+            --spacing-xl: 6rem;     /* 96px */
+            
+            --border-radius: 4px;
+            --transition-main: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        * {
+        *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
         }
 
         html {
@@ -31,880 +56,589 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            color: var(--dark-grey);
-            background-color: var(--light-cream);
-            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Typography */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 var(--spacing-m);
+        }
+
+        section {
+            padding: var(--spacing-l) 0;
+        }
+
         h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary-brown);
-            margin-bottom: 1rem;
+            font-family: var(--font-display);
+            font-weight: 500;
             line-height: 1.2;
         }
 
         h1 {
-            font-size: 2.8rem;
-            text-align: center;
-            color: var(--white);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            letter-spacing: -0.02em;
         }
 
         h2 {
-            font-size: 2.2rem;
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            color: var(--primary-brown);
+            font-size: clamp(2rem, 5vw, 3rem);
         }
 
         p {
-            margin-bottom: 1rem;
+            max-width: 65ch;
         }
-
+        
         a {
-            color: var(--accent-gold);
+            color: var(--primary-accent);
             text-decoration: none;
-            transition: color var(--transition-speed);
+            transition: var(--transition-main);
         }
-
+        
         a:hover {
-            color: var(--primary-brown);
+            opacity: 0.75;
         }
 
-        /* Utility Classes */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
+        .section-label {
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--secondary-accent);
+            margin-bottom: var(--spacing-m);
         }
 
-        .section-padding {
-            padding: 4rem 0;
+        .hairline-divider {
+            border: 0;
+            height: 1px;
+            background-color: var(--hairline-color);
+            margin: var(--spacing-l) 0;
+        }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+        
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        .text-center {
-            text-align: center;
-        }
-
-        /* Header */
+        /* --- Header --- */
         .site-header {
-            background-color: var(--primary-brown);
-            color: var(--white);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
+            position: absolute;
             top: 0;
             left: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: background-color var(--transition-speed);
+            width: 100%;
+            z-index: 100;
+            padding: var(--spacing-m) 0;
         }
-
-        .header-content {
+        
+        .site-header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--white);
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.5rem;
             text-decoration: none;
-            flex-shrink: 0;
+            color: var(--text-color);
         }
 
         .nav-burger {
+            display: none;
             background: none;
             border: none;
-            color: var(--white);
             font-size: 2rem;
             cursor: pointer;
-            display: none; /* Hidden on desktop */
-            order: 1; /* Place it before language selector on mobile */
-            padding: 0.5rem;
-            margin-left: auto; /* Push to the right */
-        }
-
-        .lang-select-wrapper {
-            margin-left: 1rem;
-            order: 2; /* After burger on mobile */
-        }
-
-        .lang-select {
-            background-color: var(--accent-gold);
-            color: var(--white);
-            border: none;
-            padding: 0.5rem 0.8rem;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 0.5rem center;
-            background-size: 1em;
-            padding-right: 2rem;
-        }
-
-        .lang-select:focus {
-            outline: none;
-            box-shadow: 0 0 0 2px var(--light-cream);
+            color: var(--text-color);
+            z-index: 101;
         }
 
         .site-nav {
-            margin-left: auto;
-            flex-grow: 1;
-        }
-
-        .site-nav ul {
-            list-style: none;
             display: flex;
-            justify-content: flex-end;
-            margin: 0;
-            padding: 0;
+            align-items: center;
+            gap: var(--spacing-m);
         }
-
-        .site-nav li {
-            margin-left: 2rem;
-        }
-
+        
         .site-nav a {
-            color: var(--white);
-            font-weight: 600;
-            font-size: 1rem;
-            padding: 0.5rem 0;
-            transition: color var(--transition-speed), border-bottom var(--transition-speed);
+            font-family: var(--font-body);
+            font-weight: 400;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            text-decoration: none;
             position: relative;
+            padding: var(--spacing-xs) 0;
         }
-
+        
         .site-nav a::after {
             content: '';
             position: absolute;
-            left: 0;
             bottom: 0;
+            left: 0;
             width: 0;
-            height: 2px;
-            background-color: var(--accent-gold);
-            transition: width var(--transition-speed);
+            height: 1px;
+            background-color: var(--primary-accent);
+            transition: width 0.3s ease;
         }
-
-        .site-nav a:hover::after,
-        .site-nav a.active::after {
+        
+        .site-nav a:hover::after {
             width: 100%;
         }
 
-        /* Hero Section */
+        .lang-toggle {
+            display: flex;
+            gap: var(--spacing-xs);
+            border-left: 1px solid var(--hairline-color);
+            padding-left: var(--spacing-m);
+        }
+
+        .lang-toggle button {
+            background: none;
+            border: none;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.8rem;
+            cursor: pointer;
+            color: var(--secondary-accent);
+            text-transform: uppercase;
+            transition: var(--transition-main);
+        }
+        
+        .lang-toggle button:hover,
+        .lang-toggle button.active {
+            color: var(--text-color);
+        }
+        
+        /* --- Mobile Nav --- */
+        @media (max-width: 768px) {
+            .nav-burger {
+                display: block;
+            }
+            .site-nav {
+                position: fixed;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                background-color: var(--bg-color);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: var(--spacing-l);
+                transform: translateX(100%);
+                transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+                visibility: hidden;
+            }
+            
+            body.nav-open .site-nav {
+                transform: translateX(0);
+                visibility: visible;
+            }
+
+            body.nav-open .nav-burger {
+                position: fixed;
+                top: var(--spacing-m);
+                right: var(--spacing-m);
+            }
+            
+            .site-nav a {
+                font-size: 1.5rem;
+            }
+
+            .lang-toggle {
+                border-left: none;
+                padding-left: 0;
+                margin-top: var(--spacing-m);
+            }
+        }
+
+        /* --- Hero Section --- */
         .hero {
-            background-image: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.6)), url("https://lh3.googleusercontent.com/gps-cs-s/APNQkAGc0vHRGYchYollzQR0Xhxl-mEK2HgzMSrAZ8VDku99j03oQth5RtFM_4rNzK4UBqHjeVWVCmf2HALB8ZV-1rO5aNE0Y2FMkecU_-FSYYvv5PDGc9GpQbUebknIpl-0dqoQBXRyhkK9M0g=w1600-h900-k-no");
+            min-height: 100vh;
+            display: grid;
+            align-items: center;
+            padding-top: var(--spacing-xl);
+            padding-bottom: var(--spacing-l);
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-l);
+            align-items: center;
+        }
+        
+        .hero-text {
+            z-index: 2;
+        }
+
+        .hero-rating {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-s);
+            margin-top: var(--spacing-m);
+            margin-bottom: var(--spacing-m);
+        }
+        
+        .hero-rating .stars {
+            color: var(--primary-accent);
+            font-size: 1.2rem;
+        }
+        
+        .hero-rating .review-text {
+            font-size: 0.9rem;
+            color: var(--secondary-accent);
+        }
+        
+        .hero-image-wrapper {
+            position: relative;
+            min-height: 400px;
+            background-image: url('https://lh3.googleusercontent.com/gps-cs-s/APNQkAGc0vHRGYchYollzQR0Xhxl-mEK2HgzMSrAZ8VDku99j03oQth5RtFM_4rNzK4UBqHjeVWVCmf2HALB8ZV-1rO5aNE0Y2FMkecU_-FSYYvv5PDGc9GpQbUebknIpl-0dqoQBXRyhkK9M0g=w1600-h900-k-no');
             background-size: cover;
             background-position: center;
-            color: var(--white);
-            text-align: center;
-            padding: 10rem 0 8rem;
-            min-height: 80vh;
+            border-radius: var(--border-radius);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        @media (min-width: 992px) {
+            .hero {
+                min-height: 90vh;
+            }
+            .hero-content {
+                grid-template-columns: 1fr 1.2fr;
+                gap: var(--spacing-xl);
+            }
+            .hero-image-wrapper {
+                min-height: 70vh;
+                transform: scale(1.1);
+            }
+        }
+        
+        /* --- Buttons --- */
+        .cta-buttons {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            margin-top: 66px; /* Adjust for fixed header height */
-            position: relative;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0,0,0,0.3); /* Additional overlay for text readability */
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            padding: 0 1.5rem;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            font-weight: 300;
-        }
-
-        .rating-badge {
-            display: inline-flex;
-            align-items: center;
-            background-color: rgba(255,255,255,0.2);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        .rating-badge .star {
-            color: var(--accent-gold);
-            margin-right: 0.5rem;
-            font-size: 1.2em;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
             flex-wrap: wrap;
+            gap: var(--spacing-s);
+            margin-top: var(--spacing-m);
         }
 
         .btn {
             display: inline-block;
-            background-color: var(--accent-gold);
-            color: var(--white);
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: background-color var(--transition-speed), transform var(--transition-speed);
-            border: none;
+            padding: 0.9rem 2rem;
+            font-family: var(--font-body);
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: var(--transition-main);
+            border: 1px solid transparent;
             cursor: pointer;
-            text-align: center;
-            white-space: nowrap;
         }
 
-        .btn:hover {
-            background-color: var(--primary-brown);
+        .btn-primary {
+            background-color: var(--primary-accent);
+            color: var(--surface-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #9c7b4a;
             transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(176, 141, 87, 0.3);
+            opacity: 1;
         }
 
-        .btn.btn-outline {
+        .btn-secondary {
             background-color: transparent;
-            border: 2px solid var(--accent-gold);
-            color: var(--accent-gold);
+            color: var(--text-color);
+            border-color: var(--hairline-color);
         }
 
-        .btn.btn-outline:hover {
-            background-color: var(--accent-gold);
-            color: var(--white);
+        .btn-secondary:hover {
+            background-color: var(--surface-color);
+            border-color: var(--text-color);
+            transform: translateY(-2px);
+            opacity: 1;
         }
 
-        /* About Section */
-        .about-content {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .about-content p {
-            max-width: 800px;
+        /* --- About Section --- */
+        #about {
             text-align: center;
-            font-size: 1.1rem;
-            color: var(--medium-grey);
         }
 
-        /* Features Section */
+        #about p {
+            font-family: var(--font-display);
+            font-size: clamp(1.2rem, 3vw, 1.75rem);
+            line-height: 1.6;
+            max-width: 40ch;
+            margin: 0 auto;
+            color: var(--text-color);
+        }
+
+        /* --- Features Section --- */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-m);
         }
 
         .feature-item {
-            background-color: var(--white);
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            text-align: center;
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-            border-bottom: 4px solid var(--accent-gold);
+            background: var(--surface-color);
+            padding: var(--spacing-m);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--hairline-color);
         }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-        }
-
+        
         .feature-item h3 {
-            margin-top: 0.5rem;
-            margin-bottom: 0;
-            color: var(--primary-brown);
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--text-color);
         }
 
-        /* Opening Hours Section */
-        .hours-table {
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto 3rem;
-            border-collapse: collapse;
-            background-color: var(--white);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        /* --- Hours & Location Section --- */
+        .hours-location-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-l);
+            background-color: var(--surface-color);
+            padding: var(--spacing-l);
+            border: 1px solid var(--hairline-color);
+            border-radius: var(--border-radius);
         }
-
-        .hours-table th, .hours-table td {
-            padding: 1rem 1.5rem;
-            text-align: left;
-            border-bottom: 1px solid #eee;
+        
+        .hours-list {
+            list-style: none;
         }
-
-        .hours-table th {
-            background-color: var(--primary-brown);
-            color: var(--white);
-            font-weight: 600;
-            text-transform: uppercase;
+        
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--spacing-xs) 0;
+            border-bottom: 1px solid var(--hairline-color);
         }
-
-        .hours-table td {
-            color: var(--dark-grey);
-        }
-
-        .hours-table tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        .hours-table tr:last-child td {
+        
+        .hours-list li:last-child {
             border-bottom: none;
         }
-
-        /* Contact Section */
-        .contact-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2rem;
+        
+        .hours-list .day {
+            font-weight: 500;
         }
 
-        .contact-info {
-            background-color: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            max-width: 400px;
-            width: 100%;
-            text-align: center;
+        .location-info .address {
+            font-style: normal;
+            margin-bottom: var(--spacing-m);
         }
 
-        .contact-info p {
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+        @media (min-width: 768px) {
+            .hours-location-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
-        .contact-info a {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        .directions-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--primary-brown);
-            color: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            max-width: 400px;
-            width: 100%;
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-        }
-
-        .directions-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-        }
-
-        .directions-card p {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: var(--white);
-        }
-
-        .directions-card .btn {
-            background-color: var(--accent-gold);
-            color: var(--white);
-            padding: 0.8rem 2rem;
-            font-size: 1rem;
-        }
-
-        /* Footer */
+        /* --- Footer --- */
         .site-footer {
-            background-color: var(--primary-brown);
-            color: var(--white);
-            padding: 2rem 0;
+            padding: var(--spacing-l) 0 var(--spacing-m);
             text-align: center;
-            font-size: 0.9rem;
-            margin-top: 4rem;
+            font-size: 0.8rem;
+            color: var(--secondary-accent);
+        }
+        
+        .footer-credits {
+            margin-bottom: var(--spacing-s);
+        }
+        
+        .footer-credits a {
+            color: var(--secondary-accent);
+            font-weight: 500;
+        }
+        
+        .footer-credits a:hover {
+            color: var(--primary-accent);
         }
 
-        .site-footer p {
-            margin-bottom: 0.5rem;
-        }
-
-        .site-footer a {
-            color: var(--accent-gold);
-            margin: 0 0.5rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-            .hero p {
-                font-size: 1.1rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-burger {
-                display: block; /* Show burger on mobile */
-            }
-
-            .header-content {
-                flex-wrap: nowrap;
-                justify-content: space-between;
-            }
-
-            .site-nav {
-                position: fixed;
-                top: 66px; /* Below header */
-                left: 0;
-                width: 100%;
-                height: calc(100vh - 66px); /* Full height below header */
-                background-color: var(--primary-brown);
-                transform: translateX(100%);
-                transition: transform var(--transition-speed);
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                z-index: 999;
-                overflow-y: auto;
-            }
-
-            body.nav-open .site-nav {
-                transform: translateX(0); /* Slide in */
-            }
-
-            .site-nav ul {
-                flex-direction: column;
-                text-align: center;
-                width: 100%;
-            }
-
-            .site-nav li {
-                margin: 1.5rem 0;
-            }
-
-            .site-nav a {
-                font-size: 1.5rem;
-                padding: 1rem 0;
-                display: block;
-            }
-
-            .lang-select-wrapper {
-                order: 3; /* After nav burger */
-            }
-
-            .hero {
-                padding: 8rem 0 6rem;
-                min-height: 70vh;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .btn {
-                width: 80%;
-                max-width: 300px;
-                padding: 0.8rem 1.5rem;
-                font-size: 1rem;
-            }
-
-            h2 {
-                font-size: 1.8rem;
-                margin-bottom: 2rem;
-            }
-
-            .section-padding {
-                padding: 3rem 0;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .hours-table {
-                font-size: 0.9rem;
-            }
-            .hours-table th, .hours-table td {
-                padding: 0.8rem 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 1.5rem;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .hero p {
-                font-size: 0.9rem;
-            }
-            h2 {
-                font-size: 1.5rem;
-            }
-            .btn {
-                width: 90%;
-            }
-            .contact-info, .directions-card {
-                padding: 1.5rem;
-            }
-        }
     </style>
 </head>
 <body>
+
     <header class="site-header">
-        <div class="container header-content">
-            <a href="#hero" class="logo" data-lang-key="brandName">Marani Restaurant</a>
-            <button class="nav-burger" aria-label="menu" onclick="document.body.classList.toggle('nav-open')">☰</button>
-            <div class="lang-select-wrapper">
-                <select id="lang-select" class="lang-select" onchange="switchLanguage(this.value)">
-                    <option value="az">AZ</option>
-                    <option value="ru">RU</option>
-                    <option value="en">EN</option>
-                </select>
-            </div>
+        <div class="container">
+            <a href="#home" class="logo">Marani</a>
             <nav class="site-nav">
-                <ul>
-                    <li><a href="#hero" data-lang-key="navHome" onclick="document.body.classList.remove('nav-open')">Ana Səhifə</a></li>
-                    <li><a href="#about" data-lang-key="navAbout" onclick="document.body.classList.remove('nav-open')">Haqqımızda</a></li>
-                    <li><a href="#features" data-lang-key="navFeatures" onclick="document.body.classList.remove('nav-open')">Xüsusiyyətlər</a></li>
-                    <li><a href="#hours" data-lang-key="navHours" onclick="document.body.classList.remove('nav-open')">Açılış Saatları</a></li>
-                    <li><a href="#contact" data-lang-key="navContact" onclick="document.body.classList.remove('nav-open')">Əlaqə</a></li>
-                </ul>
+                <a href="#about" onclick="document.body.classList.remove('nav-open')" data-lang-az="Haqqımızda" data-lang-ru="О нас" data-lang-en="About">Haqqımızda</a>
+                <a href="#features" onclick="document.body.classList.remove('nav-open')" data-lang-az="Xidmətlər" data-lang-ru="Услуги" data-lang-en="Services">Xidmətlər</a>
+                <a href="#contact" onclick="document.body.classList.remove('nav-open')" data-lang-az="Əlaqə" data-lang-ru="Контакты" data-lang-en="Contact">Əlaqə</a>
+                <div class="lang-toggle">
+                    <button onclick="setLanguage('az')" class="lang-btn active">Az</button>
+                    <button onclick="setLanguage('ru')" class="lang-btn">Ru</button>
+                    <button onclick="setLanguage('en')" class="lang-btn">En</button>
+                </div>
             </nav>
+            <button class="nav-burger" aria-label="menu" onclick="document.body.classList.toggle('nav-open')">☰</button>
         </div>
     </header>
 
     <main>
-        <section id="hero" class="hero">
-            <div class="hero-content">
-                <h1>Marani Restaurant</h1>
-                <p data-lang-key="heroCategory">Restoran</p>
-                <div class="rating-badge">
-                    <span class="star">&#9733;</span> 4.9 <span data-lang-key="heroReviews">ulduz (1801 Google rəyi əsasında)</span>
-                </div>
-                <div class="hero-buttons">
-                    <a href="tel:0508624299" class="btn" data-lang-key="heroCall">Zəng et</a>
-                    <a href="https://www.google.com/maps?cid=14864431817506084845" target="_blank" rel="noopener noreferrer" class="btn btn-outline" data-lang-key="heroDirections">Yol tarifi</a>
-                </div>
-            </div>
-        </section>
 
-        <section id="about" class="section-padding">
+        <section id="home" class="hero">
             <div class="container">
-                <h2 data-lang-key="aboutTitle">Haqqımızda</h2>
-                <div class="about-content">
-                    <p data-lang-key="aboutText">
-                        Marani Restaurant Bakının mərkəzində yerləşən, unikal ləzzətləri və isti atmosferi ilə seçilən bir məkandır. Biz qonaqlarımıza unudulmaz yemək təcrübəsi yaşatmaq üçün ən təzə və keyfiyyətli məhsullardan istifadə edirik. Hər bir yeməyimizdə kulinariya sənətimizin izlərini tapacaqsınız. Ailənizlə, dostlarınızla və ya iş yoldaşlarınızla xoş vaxt keçirmək üçün ideal bir mühit təqdim edirik.
-                    </p>
-                    <p data-lang-key="aboutText2">
-                        Menyumuzda hər zövqə uyğun müxtəlif yeməklər, əla kokteyllər, xüsusi qəhvələr və ləzzətli desertlər mövcuddur. Geniş çay və şərab seçimi ilə yeməyinizin dadını daha da zənginləşdirə bilərsiniz. Marani Restaurantda nahar və şam yeməyi üçün sizləri gözləyirik.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section id="features" class="section-padding" style="background-color: #f5f0e6;">
-            <div class="container">
-                <h2 data-lang-key="featuresTitle">Xüsusiyyətlərimiz</h2>
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <h3>Təmassız çatdırılma</h3>
+                <div class="hero-content">
+                    <div class="hero-text reveal">
+                        <h1 data-lang-az="Dadın və Zərifliyin Məkanı" data-lang-ru="Место Вкуса и Элегантности" data-lang-en="A Place of Taste and Elegance">Dadın və Zərifliyin Məkanı</h1>
+                        <p data-lang-az="Marani-də hər bir təam unudulmaz bir hekayə danışır. Bakının mərkəzində sizi gözləyirik." data-lang-ru="В Marani каждое блюдо рассказывает незабываемую историю. Мы ждем вас в центре Баку." data-lang-en="At Marani, every dish tells an unforgettable story. We are waiting for you in the center of Baku.">Marani-də hər bir təam unudulmaz bir hekayə danışır. Bakının mərkəzində sizi gözləyirik.</p>
+                        <div class="hero-rating">
+                            <div class="stars">★★★★★</div>
+                            <div class="review-text">4.9 / 5 (1801 Google rəyi)</div>
+                        </div>
+                        <div class="cta-buttons">
+                            <a href="tel:0508624299" class="btn btn-primary" data-lang-az="Zəng et" data-lang-ru="Позвонить" data-lang-en="Call Us">Zəng et</a>
+                            <a href="https://www.google.com/maps?cid=14864431817506084845" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-lang-az="Yol Tarifi" data-lang-ru="Маршрут" data-lang-en="Get Directions">Yol Tarifi</a>
+                        </div>
                     </div>
-                    <div class="feature-item">
-                        <h3>Çatdırılma</h3>
-                    </div>
-                    <div class="feature-item">
-                        <h3>Yerində xidmət</h3>
-                    </div>
-                    <div class="feature-item">
-                        <h3>Özünlə apar</h3>
-                    </div>
-                    <div class="feature-item">
-                        <h3>Məkanda yemək</h3>
-                    </div>
-                    <div class="feature-item">
-                        <h3>Əla kokteyllər</h3>
-                    </div>
-                    <div class="feature-item">
-                        <h3>Əla qəhvə</h3>
-                    </div>
-                    <div class="feature-item">
-                        <h3>Əla desertlər</h3>
-                    </div>
-                    <div class="feature-item">
-                        <h3>Geniş çay seçimi</h3>
-                    </div>
-                    <div class="feature-item">
-                        <h3>Geniş şərab seçimi</h3>
-                    </div>
-                    <div class="feature-item">
-                        <h3>Nahar</h3>
-                    </div>
-                    <div class="feature-item">
-                        <h3>Şam yeməyi</h3>
+                    <div class="hero-image-wrapper reveal" style="transition-delay: 0.2s;">
+                        <!-- Image set via CSS -->
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="hours" class="section-padding">
-            <div class="container">
-                <h2 data-lang-key="hoursTitle">Açılış Saatları</h2>
-                <table class="hours-table">
-                    <thead>
-                        <tr>
-                            <th data-lang-key="hoursDay">Gün</th>
-                            <th data-lang-key="hoursTime">Saat</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td data-lang-key="daySaturday">Şənbə</td>
-                            <td>2–11 PM</td>
-                        </tr>
-                        <tr>
-                            <td data-lang-key="daySunday">Bazar</td>
-                            <td>2–11 PM</td>
-                        </tr>
-                        <tr>
-                            <td data-lang-key="dayMonday">Bazar ertəsi</td>
-                            <td>12:30–11 PM</td>
-                        </tr>
-                        <tr>
-                            <td data-lang-key="dayTuesday">Çərşənbə axşamı</td>
-                            <td>12:30–11 PM</td>
-                        </tr>
-                        <tr>
-                            <td data-lang-key="dayWednesday">Çərşənbə</td>
-                            <td>12:30–11 PM</td>
-                        </tr>
-                        <tr>
-                            <td data-lang-key="dayThursday">Cümə axşamı</td>
-                            <td>12:30–11 PM</td>
-                        </tr>
-                        <tr>
-                            <td data-lang-key="dayFriday">Cümə</td>
-                            <td>12:30–11 PM</td>
-                        </tr>
-                    </tbody>
-                </table>
+        <section id="about" class="container reveal">
+            <h2 class="section-label" data-lang-az="Haqqımızda" data-lang-ru="О нас" data-lang-en="About Us">Haqqımızda</h2>
+            <p data-lang-az="Marani sadəcə bir restoran deyil, hər detalında zövq və keyfiyyətin hiss olunduğu bir mədəniyyət məkanıdır. Bizim üçün mətbəx sənətdir və hər qonağımız bu sənətin ən dəyərli izləyicisidir." data-lang-ru="Marani — это не просто ресторан, это культурное пространство, где вкус и качество ощущаются в каждой детали. Для нас кухня — это искусство, и каждый наш гость — самый ценный его ценитель." data-lang-en="Marani is not just a restaurant; it's a cultural space where taste and quality are felt in every detail. For us, the kitchen is an art, and every guest is its most valued admirer.">Marani sadəcə bir restoran deyil, hər detalında zövq və keyfiyyətin hiss olunduğu bir mədəniyyət məkanıdır. Bizim üçün mətbəx sənətdir və hər qonağımız bu sənətin ən dəyərli izləyicisidir.</p>
+        </section>
+        
+        <div class="container reveal">
+            <hr class="hairline-divider">
+        </div>
+
+        <section id="features" class="container">
+            <h2 class="section-label reveal" data-lang-az="Xidmətlərimiz və Özəlliklərimiz" data-lang-ru="Наши Услуги и Особенности" data-lang-en="Our Services & Features">Xidmətlərimiz və Özəlliklərimiz</h2>
+            <div class="features-grid">
+                <div class="feature-item reveal" style="transition-delay: 0.1s;"><h3>Təmassız çatdırılma</h3></div>
+                <div class="feature-item reveal" style="transition-delay: 0.15s;"><h3>Çatdırılma</h3></div>
+                <div class="feature-item reveal" style="transition-delay: 0.2s;"><h3>Yerində xidmət</h3></div>
+                <div class="feature-item reveal" style="transition-delay: 0.25s;"><h3>Özünlə apar</h3></div>
+                <div class="feature-item reveal" style="transition-delay: 0.3s;"><h3>Məkanda yemək</h3></div>
+                <div class="feature-item reveal" style="transition-delay: 0.35s;"><h3>Əla kokteyllər</h3></div>
+                <div class="feature-item reveal" style="transition-delay: 0.4s;"><h3>Əla qəhvə</h3></div>
+                <div class="feature-item reveal" style="transition-delay: 0.45s;"><h3>Əla desertlər</h3></div>
+                <div class="feature-item reveal" style="transition-delay: 0.5s;"><h3>Geniş çay seçimi</h3></div>
+                <div class="feature-item reveal" style="transition-delay: 0.55s;"><h3>Geniş şərab seçimi</h3></div>
+                <div class="feature-item reveal" style="transition-delay: 0.6s;"><h3 data-lang-az="Nahar" data-lang-ru="Обед" data-lang-en="Lunch">Nahar</h3></div>
+                <div class="feature-item reveal" style="transition-delay: 0.65s;"><h3 data-lang-az="Şam yeməyi" data-lang-ru="Ужин" data-lang-en="Dinner">Şam yeməyi</h3></div>
             </div>
         </section>
 
-        <section id="contact" class="section-padding" style="background-color: #f5f0e6;">
-            <div class="container">
-                <h2 data-lang-key="contactTitle">Əlaqə</h2>
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <h3>Marani Restaurant</h3>
-                        <p>26 Üzeyir Hacıbəyli, Bakı</p>
-                        <a href="tel:0508624299">050 862 42 99</a>
+        <section id="contact" class="container reveal">
+            <div class="hours-location-grid">
+                <div class="hours-info">
+                    <h3 class="section-label" data-lang-az="İş Qrafiki" data-lang-ru="Часы Работы" data-lang-en="Opening Hours">İş Qrafiki</h3>
+                    <ul class="hours-list">
+                        <li><span class="day">Bazar ertəsi</span> <span>12:30–11:00 PM</span></li>
+                        <li><span class="day">Çərşənbə axşamı</span> <span>12:30–11:00 PM</span></li>
+                        <li><span class="day">Çərşənbə</span> <span>12:30–11:00 PM</span></li>
+                        <li><span class="day">Cümə axşamı</span> <span>12:30–11:00 PM</span></li>
+                        <li><span class="day">Cümə</span> <span>12:30–11:00 PM</span></li>
+                        <li><span class="day">Şənbə</span> <span>2:00–11:00 PM</span></li>
+                        <li><span class="day">Bazar</span> <span>2:00–11:00 PM</span></li>
+                    </ul>
+                </div>
+                <div class="location-info">
+                    <h3 class="section-label" data-lang-az="Ünvanımız" data-lang-ru="Наш Адрес" data-lang-en="Our Address">Ünvanımız</h3>
+                    <address class="address">
+                        26 Üzeyir Hacıbəyli,<br>
+                        Bakı, Azərbaycan
+                    </address>
+                    <div class="cta-buttons">
+                        <a href="https://www.google.com/maps?cid=14864431817506084845" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-lang-az="Xəritədə Göstər" data-lang-ru="Показать на Карте" data-lang-en="View on Map">Xəritədə Göstər</a>
                     </div>
-                    <a href="https://www.google.com/maps?cid=14864431817506084845" target="_blank" rel="noopener noreferrer" class="directions-card">
-                        <p data-lang-key="contactFindUs">Bizi Xəritədə Tapın!</p>
-                        <span class="btn" data-lang-key="contactDirections">Yol tarifi</span>
-                    </a>
                 </div>
             </div>
         </section>
+
     </main>
-
+    
     <footer class="site-footer">
         <div class="container">
-            <p data-lang-key="footerDemoNote">Bu sayt nümunə olaraq hazırlanmışdır.</p>
-            <p>
-                <span data-lang-key="footerAgency">Tərəfindən hazırlanmışdır:</span> tarlan.dev |
-                <a href="https://instagram.com/tarlan.dev" target="_blank" rel="noopener noreferrer">@tarlan.dev</a> |
-                <a href="mailto:heyderovtarlan@gmail.com">heyderovtarlan@gmail.com</a>
-            </p>
+            <div class="footer-credits">
+                <span data-lang-az="Dizayn və Kod" data-lang-ru="Дизайн и Код" data-lang-en="Design & Code by">Dizayn və Kod</span> <a href="https://instagram.com/tarlan.dev" target="_blank" rel="noopener noreferrer">@tarlan.dev</a> | <a href="mailto:heyderovtarlan@gmail.com">heyderovtarlan@gmail.com</a>
+            </div>
+            <p>Bu sayt nümunə olaraq hazırlanmışdır.</p>
         </div>
     </footer>
 
     <script>
-        const translations = {
-            az: {
-                brandName: "Marani Restaurant",
-                navHome: "Ana Səhifə",
-                navAbout: "Haqqımızda",
-                navFeatures: "Xüsusiyyətlər",
-                navHours: "Açılış Saatları",
-                navContact: "Əlaqə",
-                heroCategory: "Restoran",
-                heroReviews: "ulduz (1801 Google rəyi əsasında)",
-                heroCall: "Zəng et",
-                heroDirections: "Yol tarifi",
-                aboutTitle: "Haqqımızda",
-                aboutText: "Marani Restaurant Bakının mərkəzində yerləşən, unikal ləzzətləri və isti atmosferi ilə seçilən bir məkandır. Biz qonaqlarımıza unudulmaz yemək təcrübəsi yaşatmaq üçün ən təzə və keyfiyyətli məhsullardan istifadə edirik. Hər bir yeməyimizdə kulinariya sənətimizin izlərini tapacaqsınız. Ailənizlə, dostlarınızla və ya iş yoldaşlarınızla xoş vaxt keçirmək üçün ideal bir mühit təqdim edirik.",
-                aboutText2: "Menyumuzda hər zövqə uyğun müxtəlif yeməklər, əla kokteyllər, xüsusi qəhvələr və ləzzətli desertlər mövcuddur. Geniş çay və şərab seçimi ilə yeməyinizin dadını daha da zənginləşdirə bilərsiniz. Marani Restaurantda nahar və şam yeməyi üçün sizləri gözləyirik.",
-                featuresTitle: "Xüsusiyyətlərimiz",
-                hoursTitle: "Açılış Saatları",
-                hoursDay: "Gün",
-                hoursTime: "Saat",
-                daySaturday: "Şənbə",
-                daySunday: "Bazar",
-                dayMonday: "Bazar ertəsi",
-                dayTuesday: "Çərşənbə axşamı",
-                dayWednesday: "Çərşənbə",
-                dayThursday: "Cümə axşamı",
-                dayFriday: "Cümə",
-                contactTitle: "Əlaqə",
-                contactFindUs: "Bizi Xəritədə Tapın!",
-                contactDirections: "Yol tarifi",
-                footerDemoNote: "Bu sayt nümunə olaraq hazırlanmışdır.",
-                footerAgency: "Tərəfindən hazırlanmışdır:"
-            },
-            ru: {
-                brandName: "Ресторан Марани",
-                navHome: "Главная",
-                navAbout: "О нас",
-                navFeatures: "Особенности",
-                navHours: "Часы работы",
-                navContact: "Контакты",
-                heroCategory: "Ресторан",
-                heroReviews: "звезд (на основе 1801 отзыва Google)",
-                heroCall: "Позвонить",
-                heroDirections: "Проложить маршрут",
-                aboutTitle: "О нас",
-                aboutText: "Ресторан Марани — это место, расположенное в центре Баку, отличающееся уникальными вкусами и теплой атмосферой. Мы используем самые свежие и качественные продукты, чтобы подарить нашим гостям незабываемые впечатления от еды. В каждом нашем блюде вы найдете следы нашего кулинарного искусства. Мы предлагаем идеальную обстановку для приятного времяпровождения с семьей, друзьями или коллегами.",
-                aboutText2: "В нашем меню представлены разнообразные блюда на любой вкус, отличные коктейли, фирменные сорта кофе и вкусные десерты. Вы можете обогатить вкус своей еды широким выбором чая и вина. Мы ждем вас в ресторане Марани на обед и ужин.",
-                featuresTitle: "Наши особенности",
-                hoursTitle: "Часы работы",
-                hoursDay: "День",
-                hoursTime: "Время",
-                daySaturday: "Суббота",
-                daySunday: "Воскресенье",
-                dayMonday: "Понедельник",
-                dayTuesday: "Вторник",
-                dayWednesday: "Среда",
-                dayThursday: "Четверг",
-                dayFriday: "Пятница",
-                contactTitle: "Контакты",
-                contactFindUs: "Найдите нас на карте!",
-                contactDirections: "Проложить маршрут",
-                footerDemoNote: "Этот сайт был разработан как демонстрация.",
-                footerAgency: "Разработано:"
-            },
-            en: {
-                brandName: "Marani Restaurant",
-                navHome: "Home",
-                navAbout: "About Us",
-                navFeatures: "Features",
-                navHours: "Opening Hours",
-                navContact: "Contact",
-                heroCategory: "Restaurant",
-                heroReviews: "stars (based on 1801 Google reviews)",
-                heroCall: "Call Now",
-                heroDirections: "Get Directions",
-                aboutTitle: "About Us",
-                aboutText: "Marani Restaurant is a place located in the center of Baku, distinguished by its unique flavors and warm atmosphere. We use the freshest and highest quality products to provide our guests with an unforgettable dining experience. In each of our dishes, you will find traces of our culinary art. We offer an ideal environment for spending quality time with your family, friends, or colleagues.",
-                aboutText2: "Our menu features a variety of dishes to suit every taste, excellent cocktails, special coffees, and delicious desserts. You can further enrich the taste of your meal with a wide selection of teas and wines. We look forward to welcoming you to Marani Restaurant for lunch and dinner.",
-                featuresTitle: "Our Features",
-                hoursTitle: "Opening Hours",
-                hoursDay: "Day",
-                hoursTime: "Time",
-                daySaturday: "Saturday",
-                daySunday: "Sunday",
-                dayMonday: "Monday",
-                dayTuesday: "Tuesday",
-                dayWednesday: "Wednesday",
-                dayThursday: "Thursday",
-                dayFriday: "Friday",
-                contactTitle: "Contact Us",
-                contactFindUs: "Find Us on Map!",
-                contactDirections: "Get Directions",
-                footerDemoNote: "This website was prepared as a demo.",
-                footerAgency: "Developed by:"
-            }
-        };
+        // --- Scroll Reveal Animation ---
+        document.addEventListener("DOMContentLoaded", () => {
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
 
-        function switchLanguage(lang) {
-            const elements = document.querySelectorAll('[data-lang-key]');
-            elements.forEach(element => {
-                const key = element.getAttribute('data-lang-key');
-                if (translations[lang] && translations[lang][key]) {
-                    element.textContent = translations[lang][key];
-                }
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            revealElements.forEach(el => {
+                observer.observe(el);
             });
-            document.documentElement.lang = lang; // Update HTML lang attribute
-            localStorage.setItem('selectedLanguage', lang); // Save preference
-        }
-
-        // Initialize language
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('selectedLanguage') || 'az';
-            document.getElementById('lang-select').value = savedLang;
-            switchLanguage(savedLang);
-
-            // Close nav menu when clicking outside on mobile (optional, but good UX)
-            // This is an alternative to adding onclick to each link, or can be used in addition.
-            // For this specific requirement, inline onclick on links is mandatory.
-            // const siteNav = document.querySelector('.site-nav');
-            // document.addEventListener('click', (event) => {
-            //     if (document.body.classList.contains('nav-open') &&
-            //         !event.target.closest('.site-nav') &&
-            //         !event.target.closest('.nav-burger')) {
-            //         document.body.classList.remove('nav-open');
-            //     }
-            // });
         });
 
-        // Smooth scroll for navigation links
-        document.querySelectorAll('.site-nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        // --- Language Toggle ---
+        const translations = {};
+        const langButtons = document.querySelectorAll('.lang-btn');
+        const translatableElements = document.querySelectorAll('[data-lang-az]');
+
+        translatableElements.forEach(el => {
+            translations[el.textContent.trim()] = {
+                az: el.dataset.langAz,
+                ru: el.dataset.langRu,
+                en: el.dataset.langEn
+            };
+        });
+
+        const setLanguage = (lang) => {
+            translatableElements.forEach(el => {
+                const key = el.dataset.langAz; 
+                if(el.dataset['lang' + lang]){
+                   el.textContent = el.dataset['lang' + lang];
+                }
             });
+            
+            langButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.querySelector(`.lang-btn[onclick="setLanguage('${lang}')"]`).classList.add('active');
+            
+            localStorage.setItem('preferredLanguage', lang);
+            document.documentElement.lang = lang;
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLanguage') || 'az';
+            setLanguage(savedLang);
         });
     </script>
 </body>
