@@ -1,144 +1,843 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<title>Marani Restaurant — Restaurant</title>
-<meta name="description" content="Marani Restaurant — 26 Üzeyir Hacıbəyli, Bakı. 4.9★ (1801 rəy).">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair%20Display:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{--a:#7c2d12;--b:#b45309;--accent:#d97706;--bg:#fffaf3;--ink:#1d1d1f;--muted:#6b6b70;}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
-h1,h2,h3{font-family:'Playfair Display',Inter,serif;line-height:1.15}
-.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
-.narrow{max-width:680px}
-header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(10px);border-bottom:1px solid #0001}
-.nav{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:1080px;margin:0 auto;padding:0 22px}
-.brand{font-family:'Playfair Display',serif;font-weight:700;color:var(--a);font-size:1.15rem;text-decoration:none}
-.menu{display:flex;gap:22px;align-items:center}
-.menu a{color:var(--ink);text-decoration:none;font-size:.92rem;font-weight:500}
-.menu a:hover{color:var(--accent)}
-.langs{display:flex;gap:4px;margin-left:10px}
-.lang-btn{border:1px solid var(--a);background:none;color:var(--a);border-radius:6px;padding:3px 8px;font-size:.74rem;font-weight:600;cursor:pointer}
-.lang-btn.active{background:var(--a);color:#fff}
-.burger{display:none;font-size:1.6rem;background:none;border:none;color:var(--a);cursor:pointer}
-.hero{min-height:92vh;display:flex;align-items:center;position:relative;color:#fff;text-align:center;padding:90px 0 40px}
-.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(20,10,5,.55),rgba(20,10,5,.65)),url('https://lh3.googleusercontent.com/gps-cs-s/APNQkAGc0vHRGYchYollzQR0Xhxl-mEK2HgzMSrAZ8VDku99j03oQth5RtFM_4rNzK4UBqHjeVWVCmf2HALB8ZV-1rO5aNE0Y2FMkecU_-FSYYvv5PDGc9GpQbUebknIpl-0dqoQBXRyhkK9M0g=w1600-h900-k-no');background-size:cover;background-position:center;z-index:-1}
-.hero h1{font-size:clamp(2.2rem,6vw,4rem);margin-bottom:14px;text-shadow:0 2px 20px #0006}
-.hero .tag{font-size:1.05rem;opacity:.95;margin-bottom:18px}
-.rating{display:inline-flex;align-items:center;gap:10px;background:#fff2;border:1px solid #fff4;padding:8px 16px;border-radius:40px;margin-bottom:26px;font-weight:600}
-.rating .num{font-size:1.2rem}.rating .st{color:#ffc83d}
-.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:10px;font-weight:600;text-decoration:none;font-size:.96rem;transition:.2s}
-.btn.primary{background:var(--accent);color:#fff}.btn.primary:hover{filter:brightness(1.08)}
-.btn.ghost{background:#fff;color:var(--a)}.btn.ghost:hover{background:#fff;transform:translateY(-1px)}
-.sec{padding:72px 0}.sec.alt{background:#fff}
-.sec h2{font-size:clamp(1.6rem,4vw,2.3rem);color:var(--a);margin-bottom:28px;text-align:center}
-.about p{font-size:1.08rem;color:#3a3a3f;max-width:760px;margin:0 auto;text-align:center}
-.feats{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;max-width:840px;margin:0 auto}
-.feats li{background:var(--bg);border:1px solid #0000000d;border-left:3px solid var(--accent);padding:13px 16px;border-radius:8px;font-weight:500}
-.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:24px}
-.chip{background:var(--a);color:#fff;padding:5px 14px;border-radius:30px;font-size:.82rem}
-.grid-gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
-.gimg{height:210px;background-size:cover;background-position:center;border-radius:12px;cursor:pointer;transition:.3s;box-shadow:0 4px 16px #0001}
-.gimg:hover{transform:scale(1.02)}
-.grid-rev{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px}
-.rev{background:var(--bg);border:1px solid #0000000d;border-radius:14px;padding:22px}
-.rev .stars{color:#ffc83d;margin-bottom:8px}
-.rev p{color:#3a3a3f;font-size:.97rem;margin-bottom:12px}
-.rev cite{color:var(--muted);font-style:normal;font-weight:600;font-size:.9rem}
-.hours{width:100%;border-collapse:collapse}
-.hours tr{border-bottom:1px solid #0000000f}
-.hours th{text-align:left;padding:12px 0;font-weight:600}
-.hours td{text-align:right;padding:12px 0;color:var(--muted)}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;max-width:880px;margin:0 auto}
-.cinfo{display:flex;flex-direction:column;gap:18px}
-.cinfo .row{display:flex;gap:12px;align-items:flex-start}
-.cinfo .ico{width:40px;height:40px;flex:0 0 40px;background:var(--a);color:#fff;border-radius:10px;display:grid;place-items:center;font-size:1.1rem}
-.cinfo a{color:var(--a);text-decoration:none;font-weight:600}
-.mapcard{border-radius:14px;overflow:hidden;min-height:240px;background:linear-gradient(135deg,var(--a),var(--b));display:grid;place-items:center;color:#fff;text-decoration:none;text-align:center;padding:20px}
-footer{background:var(--a);color:#fff;text-align:center;padding:34px 22px;font-size:.9rem}
-footer .demo{opacity:.7;font-size:.8rem;margin-top:8px}
-footer a{color:#fff;font-weight:600}
-@media(max-width:760px){.menu{position:fixed;top:64px;left:0;right:0;flex-direction:column;background:#fff;padding:16px;gap:14px;transform:translateY(-150%);transition:.3s;box-shadow:0 10px 30px #0002}.menu.open{transform:translateY(0)}.burger{display:block}.contact-grid{grid-template-columns:1fr}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Marani Restaurant - Bakı</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6B4F4F; /* Dark Brown */
+            --secondary-color: #A77979; /* Rosewood/Muted Red-Brown */
+            --accent-color: #D4AF37; /* Subtle Gold/Bronze */
+            --background-light: #F8F0E3; /* Off-white/Cream */
+            --text-dark: #333333;
+            --text-light: #FFFFFF;
+            --header-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background-light);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            margin-bottom: 0.5em;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 0.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            min-height: var(--header-height);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-light);
+            flex-shrink: 0;
+            margin-right: 1rem;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            flex-grow: 1;
+            justify-content: flex-end;
+            margin-right: 1rem;
+        }
+
+        .nav-menu a {
+            color: var(--text-light);
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .lang-switcher {
+            padding: 0.4rem 0.6rem;
+            border: 1px solid var(--text-light);
+            border-radius: 5px;
+            background-color: transparent;
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FFFFFF'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 1em;
+            padding-right: 1.8rem;
+        }
+
+        .lang-switcher option {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.6)), url("https://lh3.googleusercontent.com/gps-cs-s/APNQkAGc0vHRGYchYollzQR0Xhxl-mEK2HgzMSrAZ8VDku99j03oQth5RtFM_4rNzK4UBqHjeVWVCmf2HALB8ZV-1rO5aNE0Y2FMkecU_-FSYYvv5PDGc9GpQbUebknIpl-0dqoQBXRyhkK9M0g=w1600-h900-k-no");
+            background-size: cover;
+            background-position: center;
+            color: var(--text-light);
+            text-align: center;
+            padding: 100px 1rem;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3); /* Darker overlay for text readability */
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .rating-badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(0,0,0,0.5);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .rating-badge .star-icon {
+            color: var(--accent-color);
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-color);
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--text-light);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--text-light);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        .section {
+            padding: 4rem 0;
+            background-color: var(--background-light);
+        }
+
+        .section:nth-of-type(even) {
+            background-color: #EDE7DE; /* Slightly darker cream for contrast */
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        /* Services Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            background-color: var(--text-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-item h3 {
+            font-size: 1.2rem;
+            margin: 0;
+            color: var(--primary-color);
+        }
+
+        /* Opening Hours */
+        .hours-table {
+            width: 100%;
+            max-width: 500px;
+            margin: 2rem auto 0 auto;
+            border-collapse: collapse;
+            background-color: var(--text-light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .hours-table th, .hours-table td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .hours-table th {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .hours-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .hours-table tr:nth-child(even) {
+            background-color: #FDF9F5;
+        }
+
+        .hours-table .day {
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+
+        .hours-table .time {
+            color: var(--text-dark);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info-card {
+            background-color: var(--text-light);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-info-card .icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+        }
+
+        .contact-info-card p, .contact-info-card a {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info-card a {
+            font-weight: 500;
+            display: block;
+        }
+
+        .contact-info-card a:hover {
+            color: var(--secondary-color);
+        }
+
+        .map-card {
+            background-color: var(--text-light);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .map-card .map-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .map-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+
+        .footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer a {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        .footer a:hover {
+            color: var(--text-light);
+            text-decoration: underline;
+        }
+
+        /* Utility classes for icons (simple text icons) */
+        .icon-star:before { content: '⭐'; }
+        .icon-phone:before { content: '📞'; }
+        .icon-map:before { content: '📍'; }
+        .icon-about:before { content: 'ℹ️'; }
+        .icon-services:before { content: '✨'; }
+        .icon-hours:before { content: '⏰'; }
+        .icon-contact:before { content: '✉️'; }
+        .icon-delivery-contactless:before { content: ' contactless'; } /* No specific emoji, use text */
+        .icon-delivery:before { content: '📦'; }
+        .icon-dine-in:before { content: '🍽️'; }
+        .icon-takeaway:before { content: '🚶‍♀️'; }
+        .icon-cocktails:before { content: '🍹'; }
+        .icon-coffee:before { content: '☕'; }
+        .icon-desserts:before { content: '🍰'; }
+        .icon-tea:before { content: '🍵'; }
+        .icon-wine:before { content: '🍷'; }
+        .icon-lunch:before { content: '☀️'; }
+        .icon-dinner:before { content: '🌙'; }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .logo {
+                margin-bottom: 0.5rem;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+
+            .lang-switcher {
+                margin-top: 0.5rem;
+                width: auto;
+                align-self: flex-end;
+            }
+
+            .hero {
+                padding: 80px 1rem;
+                min-height: 50vh;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                font-size: 1rem;
+            }
+
+            .features-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hours-table {
+                font-size: 0.9rem;
+            }
+
+            .hours-table th, .hours-table td {
+                padding: 0.8rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .rating-badge {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .btn {
+                padding: 0.7rem 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-<header><nav class="nav">
-  <a href="#" class="brand">Marani Restaurant</a>
-  <button class="burger" aria-label="menu">☰</button>
-  <div class="menu">
-    <a href="#about"><span data-i18n='{&quot;az&quot;:&quot;Haqqımızda&quot;,&quot;ru&quot;:&quot;О нас&quot;,&quot;en&quot;:&quot;About&quot;}'>Haqqımızda</span></a>
-    <a href="#menu"><span data-i18n='{&quot;az&quot;:&quot;Xidmətlər&quot;,&quot;ru&quot;:&quot;Услуги&quot;,&quot;en&quot;:&quot;Services&quot;}'>Xidmətlər</span></a>
-    
-    
-    <a href="#hours"><span data-i18n='{&quot;az&quot;:&quot;İş saatları&quot;,&quot;ru&quot;:&quot;Часы работы&quot;,&quot;en&quot;:&quot;Hours&quot;}'>İş saatları</span></a>
-    <a href="#contact"><span data-i18n='{&quot;az&quot;:&quot;Əlaqə&quot;,&quot;ru&quot;:&quot;Контакты&quot;,&quot;en&quot;:&quot;Contact&quot;}'>Əlaqə</span></a>
-    <div class="langs"><button class="lang-btn active" data-lang="az">AZ</button><button class="lang-btn" data-lang="ru">RU</button><button class="lang-btn" data-lang="en">EN</button></div>
-  </div>
-</nav></header>
+    <header class="header">
+        <div class="container">
+            <a href="#hero" class="logo">Marani Restaurant</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#hero" data-key="nav-home">Əsas səhifə</a></li>
+                    <li><a href="#about" data-key="nav-about">Haqqımızda</a></li>
+                    <li><a href="#features" data-key="nav-services">Xidmətlər</a></li>
+                    <li><a href="#hours" data-key="nav-hours">İş Saatları</a></li>
+                    <li><a href="#contact" data-key="nav-contact">Əlaqə</a></li>
+                </ul>
+            </nav>
+            <select id="lang-switcher" class="lang-switcher">
+                <option value="az">AZ</option>
+                <option value="ru">RU</option>
+                <option value="en">EN</option>
+            </select>
+        </div>
+    </header>
 
-<section class="hero"><div class="wrap">
-  <h1>Marani Restaurant</h1>
-  <p class="tag">Restaurant</p>
-  <div class="rating"><span class="st">★</span><span class="num">4.9</span><span>· 1801 <span data-i18n='{&quot;az&quot;:&quot;rəy&quot;,&quot;ru&quot;:&quot;отзывов&quot;,&quot;en&quot;:&quot;reviews&quot;}'>rəy</span></span></div>
-  <div class="cta">
-    <a class="btn primary" href="tel:0508624299">📞 <span data-i18n='{&quot;az&quot;:&quot;Zəng et&quot;,&quot;ru&quot;:&quot;Позвонить&quot;,&quot;en&quot;:&quot;Call&quot;}'>Zəng et</span></a>
-    <a class="btn ghost" href="https://www.google.com/maps?cid=14864431817506084845" target="_blank" rel="noopener">📍 <span data-i18n='{&quot;az&quot;:&quot;Yol tarifi&quot;,&quot;ru&quot;:&quot;Маршрут&quot;,&quot;en&quot;:&quot;Directions&quot;}'>Yol tarifi</span></a>
-  </div>
-</div></section>
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h1>Marani Restaurant</h1>
+                <p data-key="hero-category">Restoran</p>
+                <div class="rating-badge">
+                    <span class="star-icon">⭐</span> 4.9 (1801 Google rəyi)
+                </div>
+                <div class="btn-group">
+                    <a href="tel:0508624299" class="btn btn-primary" data-key="hero-call">Zəng et</a>
+                    <a href="https://www.google.com/maps?cid=14864431817506084845" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-key="hero-directions">Yol tarifi</a>
+                </div>
+            </div>
+        </section>
 
-<section id="about" class="sec about"><div class="wrap">
-  <h2><span data-i18n='{&quot;az&quot;:&quot;Haqqımızda&quot;,&quot;ru&quot;:&quot;О нас&quot;,&quot;en&quot;:&quot;About us&quot;}'>Haqqımızda</span></h2>
-  <p>Marani Restaurant — 26 Üzeyir Hacıbəyli, Bakı. 1801 müştəri rəyi ilə 4.9★ qiymətləndirilib.</p>
-</div></section>
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title" data-key="about-title">Haqqımızda</h2>
+                <p class="about-content" data-key="about-text">Marani Restoranı Bakının mərkəzində yerləşən, hər kəsi unudulmaz kulinariya səyahətinə dəvət edən unikal məkandır. Bizim mətbəximiz ənənəvi ləzzətləri müasir yanaşma ilə birləşdirərək, təzə və yüksək keyfiyyətli inqrediyentlərdən istifadə edir. Rahat atmosferimiz və qüsursuz xidmətimizlə hər bir qonağımız üçün xüsusi anlar yaratmağa çalışırıq. Ailəvi naharlar, dostlarla şam yeməkləri və ya işgüzar görüşlər üçün Marani Restoranı ideal seçimdir.</p>
+            </div>
+        </section>
 
-<section id="menu" class="sec"><div class="wrap"><h2><span data-i18n='{&quot;az&quot;:&quot;Xidmətlər və imkanlar&quot;,&quot;ru&quot;:&quot;Услуги и возможности&quot;,&quot;en&quot;:&quot;Services &amp; features&quot;}'>Xidmətlər və imkanlar</span></h2>
-        <ul class="feats"><li>Təmassız çatdırılma</li><li>Çatdırılma</li><li>Yerində xidmət</li><li>Özünlə apar</li><li>Məkanda yemək</li><li>Əla kokteyllər</li><li>Əla qəhvə</li><li>Əla desertlər</li><li>Geniş çay seçimi</li><li>Geniş şərab seçimi</li><li>Nahar</li><li>Şam yeməyi</li></ul>
-        <div class="chips"><span class="chip">Restaurant</span></div>
-      </div></section>
+        <section id="features" class="section">
+            <div class="container">
+                <h2 class="section-title" data-key="features-title">Xidmətlər və İmkanlar</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <span class="feature-icon icon-delivery-contactless"></span>
+                        <h3>Təmassız çatdırılma</h3>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon icon-delivery"></span>
+                        <h3>Çatdırılma</h3>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon icon-dine-in"></span>
+                        <h3>Yerində xidmət</h3>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon icon-takeaway"></span>
+                        <h3>Özünlə apar</h3>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon icon-dine-in"></span>
+                        <h3>Məkanda yemək</h3>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon icon-cocktails"></span>
+                        <h3>Əla kokteyllər</h3>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon icon-coffee"></span>
+                        <h3>Əla qəhvə</h3>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon icon-desserts"></span>
+                        <h3>Əla desertlər</h3>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon icon-tea"></span>
+                        <h3>Geniş çay seçimi</h3>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon icon-wine"></span>
+                        <h3>Geniş şərab seçimi</h3>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon icon-lunch"></span>
+                        <h3>Nahar</h3>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon icon-dinner"></span>
+                        <h3>Şam yeməyi</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <section id="hours" class="section">
+            <div class="container">
+                <h2 class="section-title" data-key="hours-title">İş Saatları</h2>
+                <table class="hours-table">
+                    <thead>
+                        <tr>
+                            <th>Gün</th>
+                            <th>Saatlar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="day">Şənbə</td>
+                            <td class="time">2–11 PM</td>
+                        </tr>
+                        <tr>
+                            <td class="day">Bazar</td>
+                            <td class="time">2–11 PM</td>
+                        </tr>
+                        <tr>
+                            <td class="day">Bazar ertəsi</td>
+                            <td class="time">12:30–11 PM</td>
+                        </tr>
+                        <tr>
+                            <td class="day">Çərşənbə axşamı</td>
+                            <td class="time">12:30–11 PM</td>
+                        </tr>
+                        <tr>
+                            <td class="day">Çərşənbə</td>
+                            <td class="time">12:30–11 PM</td>
+                        </tr>
+                        <tr>
+                            <td class="day">Cümə axşamı</td>
+                            <td class="time">12:30–11 PM</td>
+                        </tr>
+                        <tr>
+                            <td class="day">Cümə</td>
+                            <td class="time">12:30–11 PM</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-<section id="hours" class="sec alt"><div class="wrap narrow"><h2><span data-i18n='{&quot;az&quot;:&quot;İş saatları&quot;,&quot;ru&quot;:&quot;Часы работы&quot;,&quot;en&quot;:&quot;Opening hours&quot;}'>İş saatları</span></h2>
-        <table class="hours"><tr><th>Şənbə</th><td>2–11 PM</td></tr><tr><th>Bazar</th><td>2–11 PM</td></tr><tr><th>Bazar ertəsi</th><td>12:30–11 PM</td></tr><tr><th>Çərşənbə axşamı</th><td>12:30–11 PM</td></tr><tr><th>Çərşənbə</th><td>12:30–11 PM</td></tr><tr><th>Cümə axşamı</th><td>12:30–11 PM</td></tr><tr><th>Cümə</th><td>12:30–11 PM</td></tr></table>
-      </div></section>
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title" data-key="contact-title">Əlaqə</h2>
+                <div class="contact-grid">
+                    <div class="contact-info-card">
+                        <span class="icon icon-map"></span>
+                        <h3 data-key="contact-address-label">Ünvan</h3>
+                        <p>26 Üzeyir Hacıbəyli, Bakı</p>
+                    </div>
+                    <div class="contact-info-card">
+                        <span class="icon icon-phone"></span>
+                        <h3 data-key="contact-phone-label">Telefon</h3>
+                        <a href="tel:0508624299">050 862 42 99</a>
+                    </div>
+                    <div class="map-card">
+                        <span class="map-icon icon-map"></span>
+                        <h3 data-key="contact-directions-card">Xəritədə göstər</h3>
+                        <a href="https://www.google.com/maps?cid=14864431817506084845" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Yol tarifi al</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-<section id="contact" class="sec"><div class="wrap">
-  <h2><span data-i18n='{&quot;az&quot;:&quot;Əlaqə&quot;,&quot;ru&quot;:&quot;Контакты&quot;,&quot;en&quot;:&quot;Contact&quot;}'>Əlaqə</span></h2>
-  <div class="contact-grid">
-    <div class="cinfo">
-      <div class="row"><div class="ico">📍</div><div><strong><span data-i18n='{&quot;az&quot;:&quot;Ünvan&quot;,&quot;ru&quot;:&quot;Адрес&quot;,&quot;en&quot;:&quot;Address&quot;}'>Ünvan</span></strong><br>26 Üzeyir Hacıbəyli, Bakı</div></div>
-      <div class="row"><div class="ico">📞</div><div><strong><span data-i18n='{&quot;az&quot;:&quot;Telefon&quot;,&quot;ru&quot;:&quot;Телефон&quot;,&quot;en&quot;:&quot;Phone&quot;}'>Telefon</span></strong><br><a href="tel:0508624299">050 862 42 99</a></div></div>
-    </div>
-    <a class="mapcard" href="https://www.google.com/maps?cid=14864431817506084845" target="_blank" rel="noopener"><div>🗺️<br><strong><span data-i18n='{&quot;az&quot;:&quot;Yol tarifi&quot;,&quot;ru&quot;:&quot;Маршрут&quot;,&quot;en&quot;:&quot;Directions&quot;}'>Yol tarifi</span></strong></div></a>
-  </div>
-</div></section>
+    <footer class="footer">
+        <div class="container">
+            <p data-key="footer-demo-note">Bu sayt nümunə olaraq hazırlanmışdır</p>
+            <p>Tərəfindən hazırlanmışdır: <a href="https://instagram.com/tarlan.dev" target="_blank" rel="noopener noreferrer">@tarlan.dev</a></p>
+            <p>Əlaqə: <a href="mailto:heyderovtarlan@gmail.com">heyderovtarlan@gmail.com</a></p>
+        </div>
+    </footer>
 
-<footer>
-  <div>© 2026 Marani Restaurant</div>
-  <div class="demo"><span data-i18n='{&quot;az&quot;:&quot;Bu sayt nümunə olaraq hazırlanmışdır.&quot;,&quot;ru&quot;:&quot;Этот сайт создан в качестве примера.&quot;,&quot;en&quot;:&quot;This website was created as a demo.&quot;}'>Bu sayt nümunə olaraq hazırlanmışdır.</span> · <a href="https://instagram.com/tarlan.dev" target="_blank" rel="noopener">tarlan.dev</a></div>
-  <div class="demo">Instagram: <a href="https://instagram.com/tarlan.dev" target="_blank" rel="noopener">@tarlan.dev</a> · <a href="mailto:heyderovtarlan@gmail.com">heyderovtarlan@gmail.com</a></div>
-</footer>
+    <script>
+        const translations = {
+            'az': {
+                'nav-home': 'Əsas səhifə',
+                'nav-about': 'Haqqımızda',
+                'nav-services': 'Xidmətlər',
+                'nav-hours': 'İş Saatları',
+                'nav-contact': 'Əlaqə',
+                'hero-category': 'Restoran',
+                'hero-call': 'Zəng et',
+                'hero-directions': 'Yol tarifi',
+                'about-title': 'Haqqımızda',
+                'about-text': 'Marani Restoranı Bakının mərkəzində yerləşən, hər kəsi unudulmaz kulinariya səyahətinə dəvət edən unikal məkandır. Bizim mətbəximiz ənənəvi ləzzətləri müasir yanaşma ilə birləşdirərək, təzə və yüksək keyfiyyətli inqrediyentlərdən istifadə edir. Rahat atmosferimiz və qüsursuz xidmətimizlə hər bir qonağımız üçün xüsusi anlar yaratmağa çalışırıq. Ailəvi naharlar, dostlarla şam yeməkləri və ya işgüzar görüşlər üçün Marani Restoranı ideal seçimdir.',
+                'features-title': 'Xidmətlər və İmkanlar',
+                'hours-title': 'İş Saatları',
+                'contact-title': 'Əlaqə',
+                'contact-address-label': 'Ünvan',
+                'contact-phone-label': 'Telefon',
+                'contact-directions-card': 'Xəritədə göstər',
+                'footer-demo-note': 'Bu sayt nümunə olaraq hazırlanmışdır'
+            },
+            'ru': {
+                'nav-home': 'Главная',
+                'nav-about': 'О нас',
+                'nav-services': 'Услуги',
+                'nav-hours': 'Часы работы',
+                'nav-contact': 'Контакты',
+                'hero-category': 'Ресторан',
+                'hero-call': 'Позвонить',
+                'hero-directions': 'Маршрут',
+                'about-title': 'О нас',
+                'about-text': 'Ресторан Marani — это уникальное место в центре Баку, приглашающее каждого в незабываемое кулинарное путешествие. Наша кухня сочетает традиционные вкусы с современным подходом, используя свежие и высококачественные ингредиенты. Благодаря нашей уютной атмосфере и безупречному сервису мы стремимся создать особые моменты для каждого гостя. Для семейных обедов, ужинов с друзьями или деловых встреч ресторан Marani — идеальный выбор.',
+                'features-title': 'Услуги и Удобства',
+                'hours-title': 'Часы работы',
+                'contact-title': 'Контакты',
+                'contact-address-label': 'Адрес',
+                'contact-phone-label': 'Телефон',
+                'contact-directions-card': 'Показать на карте',
+                'footer-demo-note': 'Этот сайт создан как демонстрационный'
+            },
+            'en': {
+                'nav-home': 'Home',
+                'nav-about': 'About Us',
+                'nav-services': 'Services',
+                'nav-hours': 'Opening Hours',
+                'nav-contact': 'Contact',
+                'hero-category': 'Restaurant',
+                'hero-call': 'Call Us',
+                'hero-directions': 'Get Directions',
+                'about-title': 'About Us',
+                'about-text': 'Marani Restaurant, located in the heart of Baku, is a unique place that invites everyone on an unforgettable culinary journey. Our cuisine blends traditional flavors with a modern approach, using fresh and high-quality ingredients. With our cozy atmosphere and impeccable service, we strive to create special moments for each guest. For family lunches, dinners with friends, or business meetings, Marani Restaurant is the ideal choice.',
+                'features-title': 'Services & Amenities',
+                'hours-title': 'Opening Hours',
+                'contact-title': 'Contact Us',
+                'contact-address-label': 'Address',
+                'contact-phone-label': 'Phone',
+                'contact-directions-card': 'Show on Map',
+                'footer-demo-note': 'This site was prepared as a demo'
+            }
+        };
 
-<script>
-const I18N={&quot;az&quot;:{&quot;nav_about&quot;:&quot;Haqqımızda&quot;,&quot;nav_menu&quot;:&quot;Xidmətlər&quot;,&quot;nav_gallery&quot;:&quot;Qalereya&quot;,&quot;nav_reviews&quot;:&quot;Rəylər&quot;,&quot;nav_hours&quot;:&quot;İş saatları&quot;,&quot;nav_contact&quot;:&quot;Əlaqə&quot;,&quot;cta_call&quot;:&quot;Zəng et&quot;,&quot;cta_directions&quot;:&quot;Yol tarifi&quot;,&quot;hero_reviews&quot;:&quot;rəy&quot;,&quot;based_on&quot;:&quot;əsasında&quot;,&quot;about_t&quot;:&quot;Haqqımızda&quot;,&quot;menu_t&quot;:&quot;Xidmətlər və imkanlar&quot;,&quot;gallery_t&quot;:&quot;Qalereya&quot;,&quot;reviews_t&quot;:&quot;Müştəri rəyləri&quot;,&quot;hours_t&quot;:&quot;İş saatları&quot;,&quot;contact_t&quot;:&quot;Əlaqə&quot;,&quot;address&quot;:&quot;Ünvan&quot;,&quot;phone&quot;:&quot;Telefon&quot;,&quot;open_now&quot;:&quot;Açıqdır&quot;,&quot;closed_now&quot;:&quot;Bağlıdır&quot;,&quot;contact_lead&quot;:&quot;Bizimlə əlaqə saxlayın və ya birbaşa gəlin — sizi gözləyirik.&quot;,&quot;demo_note&quot;:&quot;Bu sayt nümunə olaraq hazırlanmışdır.&quot;},&quot;ru&quot;:{&quot;nav_about&quot;:&quot;О нас&quot;,&quot;nav_menu&quot;:&quot;Услуги&quot;,&quot;nav_gallery&quot;:&quot;Галерея&quot;,&quot;nav_reviews&quot;:&quot;Отзывы&quot;,&quot;nav_hours&quot;:&quot;Часы работы&quot;,&quot;nav_contact&quot;:&quot;Контакты&quot;,&quot;cta_call&quot;:&quot;Позвонить&quot;,&quot;cta_directions&quot;:&quot;Маршрут&quot;,&quot;hero_reviews&quot;:&quot;отзывов&quot;,&quot;based_on&quot;:&quot;на основе&quot;,&quot;about_t&quot;:&quot;О нас&quot;,&quot;menu_t&quot;:&quot;Услуги и возможности&quot;,&quot;gallery_t&quot;:&quot;Галерея&quot;,&quot;reviews_t&quot;:&quot;Отзывы клиентов&quot;,&quot;hours_t&quot;:&quot;Часы работы&quot;,&quot;contact_t&quot;:&quot;Контакты&quot;,&quot;address&quot;:&quot;Адрес&quot;,&quot;phone&quot;:&quot;Телефон&quot;,&quot;open_now&quot;:&quot;Открыто&quot;,&quot;closed_now&quot;:&quot;Закрыто&quot;,&quot;contact_lead&quot;:&quot;Свяжитесь с нами или приходите напрямую — мы вас ждём.&quot;,&quot;demo_note&quot;:&quot;Этот сайт создан в качестве примера.&quot;},&quot;en&quot;:{&quot;nav_about&quot;:&quot;About&quot;,&quot;nav_menu&quot;:&quot;Services&quot;,&quot;nav_gallery&quot;:&quot;Gallery&quot;,&quot;nav_reviews&quot;:&quot;Reviews&quot;,&quot;nav_hours&quot;:&quot;Hours&quot;,&quot;nav_contact&quot;:&quot;Contact&quot;,&quot;cta_call&quot;:&quot;Call&quot;,&quot;cta_directions&quot;:&quot;Directions&quot;,&quot;hero_reviews&quot;:&quot;reviews&quot;,&quot;based_on&quot;:&quot;based on&quot;,&quot;about_t&quot;:&quot;About us&quot;,&quot;menu_t&quot;:&quot;Services &amp; features&quot;,&quot;gallery_t&quot;:&quot;Gallery&quot;,&quot;reviews_t&quot;:&quot;Customer reviews&quot;,&quot;hours_t&quot;:&quot;Opening hours&quot;,&quot;contact_t&quot;:&quot;Contact&quot;,&quot;address&quot;:&quot;Address&quot;,&quot;phone&quot;:&quot;Phone&quot;,&quot;open_now&quot;:&quot;Open&quot;,&quot;closed_now&quot;:&quot;Closed&quot;,&quot;contact_lead&quot;:&quot;Get in touch or just drop by — we look forward to seeing you.&quot;,&quot;demo_note&quot;:&quot;This website was created as a demo.&quot;}};
-document.querySelector('.burger')?.addEventListener('click',()=>document.querySelector('.menu').classList.toggle('open'));
-document.querySelectorAll('.menu a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.menu').classList.remove('open')));
-document.querySelectorAll('.lang-btn').forEach(btn=>btn.addEventListener('click',()=>{
-  const lang=btn.dataset.lang;
-  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b===btn));
-  document.documentElement.lang=lang;
-  document.querySelectorAll('[data-i18n]').forEach(el=>{try{const d=JSON.parse(el.getAttribute('data-i18n'));if(d[lang])el.textContent=d[lang];}catch(e){}});
-}));
-document.querySelectorAll('.gimg').forEach(g=>g.addEventListener('click',()=>{
-  const o=document.createElement('div');o.style.cssText='position:fixed;inset:0;background:#000d;z-index:99;display:grid;place-items:center;cursor:zoom-out;padding:20px';
-  o.innerHTML='<img src="'+g.dataset.full+'" style="max-width:96%;max-height:92%;border-radius:12px">';
-  o.addEventListener('click',()=>o.remove());document.body.appendChild(o);
-}));
-</script>
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            // Update button text specifically if needed, as some are links
+            document.querySelector('.btn-primary[data-key="hero-call"]').textContent = translations[lang]['hero-call'];
+            document.querySelector('.btn-secondary[data-key="hero-directions"]').textContent = translations[lang]['hero-directions'];
+            document.querySelector('.map-card .btn-primary').textContent = translations[lang]['hero-directions']; // Assuming map card button also uses this key for consistency
+            document.documentElement.lang = lang; // Update HTML lang attribute
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const langSwitcher = document.getElementById('lang-switcher');
+
+            // Set initial language based on browser or default to AZ
+            const userLang = localStorage.getItem('lang') || 'az';
+            langSwitcher.value = userLang;
+            setLanguage(userLang);
+
+            langSwitcher.addEventListener('change', (event) => {
+                const newLang = event.target.value;
+                localStorage.setItem('lang', newLang); // Save preference
+                setLanguage(newLang);
+            });
+        });
+    </script>
 </body>
 </html>
